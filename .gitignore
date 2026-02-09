@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+.env
+.firecrawl/
+.agents/
+*.log
+style.css.bak
+.scripts
