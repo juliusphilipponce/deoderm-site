@@ -720,8 +720,68 @@ h6 {
     .nav,
     .header__cta {
         display: none;
-        /* Hide for now, requires JS for mobile menu */
     }
+
+    /* Mobile Menu Active State */
+    .nav.nav--active {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--color-white);
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: var(--shadow-hover);
+        animation: fade-up 0.3s ease-out;
+        z-index: 1000;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    .nav.nav--active .nav__list {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+
+    .nav.nav--active .nav__item {
+        width: 100%;
+        border-bottom: 1px solid var(--color-gray-100);
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+    }
+
+    .nav.nav--active .nav__link {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1rem 1.5rem;
+    }
+
+    /* Mobile Dropdown - Always visible or toggleable, here making it static for simplicity */
+    .nav.nav--active .nav__dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background-color: var(--color-off-white);
+        width: 100%;
+        padding: 0;
+        display: block;
+    }
+
+    .nav.nav--active .nav__dropdown a {
+        padding-left: 2.5rem;
+    }
+
+    /* Show CTA in mobile menu if needed, or keep hidden. 
+       If you want the CTA to appear in the menu, you'd need JS to move it or CSS to reveal it 
+       inside the nav if it was structured that way. 
+       Currently .header__cta is outside .nav, so it remains hidden. 
+    */
 
     .mobile-menu-toggle {
         display: block;
